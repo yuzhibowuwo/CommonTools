@@ -1,3 +1,5 @@
+
+
 public class test {
     public static void main(String[] args) {
         String s="110000 北京市\n" +
@@ -3203,5 +3205,12 @@ public class test {
                 "710001 花莲县\n" +
                 "710001 南投县\n" +
                 "710002 新北市\n";
+        String idcard="14102199304081474";
+        String md5String="";
+        System.out.print(idcard.substring(0));
+
+        //forticlient 6.0.3.0155
+        //FCT8000097952756
+        //UID2：7CBFE183C7234CBAA7C9D53A8EA9FA79
     }
 }

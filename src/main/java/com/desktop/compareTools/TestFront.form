@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.desktop.compareTools.TestFront">
+  <grid id="27dc6" binding="CompareJPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="20" vgap="20">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="36" y="20" width="1200" height="1580"/>
+    </constraints>
+    <properties>
+      <enabled value="true"/>
+      <minimumSize width="1200" height="782"/>
+      <opaque value="true"/>
+    </properties>
+    <border type="bevel-lowered" title="工具"/>
+    <children>
+      <scrollpane id="9badf" binding="JsonJPanel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="true"/>
+          <focusable value="false"/>
+        </properties>
+        <border type="line" title="Json"/>
+        <children>
+          <component id="813b" class="javax.swing.JTextArea" binding="JsonRequest">
+            <constraints/>
+            <properties>
+              <autoscrolls value="true"/>
+              <dragEnabled value="false"/>
+              <editable value="true"/>
+              <enabled value="true"/>
+              <focusCycleRoot value="false"/>
+              <lineWrap value="true"/>
+              <maximumSize width="452" height="-1"/>
+              <preferredSize width="350" height="700"/>
+              <requestFocusEnabled value="true"/>
+              <rows value="0"/>
+              <text value=""/>
+              <visible value="true"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <scrollpane id="61853" binding="IneterFaceJPanel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <autoscrolls value="true"/>
+          <focusable value="false"/>
+        </properties>
+        <border type="line" title="Interface"/>
+        <children>
+          <component id="c06f0" class="javax.swing.JTextArea" binding="InterfaceStand">
+            <constraints/>
+            <properties>
+              <autoscrolls value="true"/>
+              <dragEnabled value="false"/>
+              <editable value="true"/>
+              <enabled value="true"/>
+              <focusCycleRoot value="false"/>
+              <lineWrap value="true"/>
+              <maximumSize width="452" height="-1"/>
+              <preferredSize width="350" height="700"/>
+              <rows value="0"/>
+              <text value=""/>
+              <visible value="true"/>
+              <wrapStyleWord value="false"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="e23f" class="javax.swing.JButton" binding="ClearInterface">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <actionCommand value="清空接口内容"/>
+          <text value="清空文件接口内容"/>
+        </properties>
+      </component>
+      <component id="72b87" class="javax.swing.JButton" binding="ClearJson">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <actionCommand value="清空系统请求报文"/>
+          <text value="清空Json请求报文"/>
+        </properties>
+      </component>
+      <scrollpane id="4ec25" binding="CompareRes">
+        <constraints>
+          <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <name value="对比结果"/>
+        </properties>
+        <border type="line" title="对比结果"/>
+        <children>
+          <component id="c64f5" class="javax.swing.JTextArea" binding="CompareResult">
+            <constraints/>
+            <properties>
+              <editable value="false"/>
+              <enabled value="true"/>
+              <maximumSize width="450" height="700"/>
+              <preferredSize width="350" height="700"/>
+            </properties>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="b9016" class="javax.swing.JButton" binding="CompareButton">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="比较"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

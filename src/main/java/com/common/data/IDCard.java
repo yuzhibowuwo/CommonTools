@@ -1,9 +1,25 @@
 package com.common.data;
 
+import java.security.SecureRandom;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 public class IDCard {
+    public Map<String, Integer> getProviceCode() {
+        return ProviceCode;
+    }
+
+    public Map<Integer, Integer> getWeight() {
+        return Weight;
+    }
+
+    public char[] getCrCode() {
+        return CrCode;
+    }
+
     //区，号
     public Map<String,Integer> ProviceCode=new HashMap<>(){{
         put("北京市",110000);
@@ -3212,13 +3228,85 @@ public class IDCard {
     }};
     //省 区 号
 
+    //各个位置加权因子 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2
+    Map<Integer,Integer> Weight =new HashMap<Integer,Integer>(){
+        {
+            put(1,7);
+            put(2,9);
+            put(3,10);
+            put(4,5);
+            put(5,8);
+            put(6,4);
+            put(7,2);
+            put(8,1);
+            put(9,6);
+            put(10,3);
+            put(11,7);
+            put(12,9);
+            put(13,10);
+            put(14,5);
+            put(15,8);
+            put(16,4);
+            put(17,2);
+        }
+    };
+
+    //校验位
+    char [] CrCode=new char[]{ '1','0','X','9','8','7','6','5','4','3','2'};
 
     public Map<String, Map<String,Integer>> ProviceAreaCode=new HashMap<>();
     public void InitProviceAreaCode()
     {
         ProviceCode.entrySet();
+
     }
     public IDCard()
     {
         ;}
+    //PoliceCode
+    public String getPoliceCode()
+    {
+        SecureRandom rd=new SecureRandom();
+        return String.valueOf(rd.nextInt(10))+String.valueOf(rd.nextInt(10));
+    }
+    /**
+     * 输入参数0为女性，1为男性;
+     * **/
+    public String GetGenderCode(int choice)
+    {
+        SecureRandom rd=new SecureRandom();
+        int res=rd.nextInt();
+        if (choice==0)
+            while(res%2!=0)
+                res= rd.nextInt();
+        else
+            while(res%2!=1)
+                res= rd.nextInt();
+        return String.valueOf(res%10);
+    }
+
+    public char CaluCrc(String IdNo)
+    {
+        int res=0;
+        if (IdNo.length()!=17)
+            return 'X';
+        for (int i=0;i<IdNo.length();i++) {
+
+            res = res + Weight.get(i+1) *  ((int)IdNo.charAt(i)-48);
+        }
+        return CrCode[res%11];
+
+    }
+    //random birthday
+    public String RandomBirthData(String StartTime,String EndTime) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
+        Date start=format.parse(StartTime);
+        Date end=format.parse(EndTime);
+        long seed=end.getTime()- start.getTime()+1;
+        SecureRandom rd=new SecureRandom();
+        long temp=rd.nextLong(seed);
+        long res=start.getTime()+temp;
+        return format.format(new Date(res));
+    }
+
 }
